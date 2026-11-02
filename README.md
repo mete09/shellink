@@ -1,5 +1,10 @@
 # Shellink
 
+[![star](https://gitee.com/mete-ns/shellink/badge/star.svg?theme=dark)](https://gitee.com/mete-ns/shellink/stargazers)
+[![fork](https://gitee.com/mete-ns/shellink/badge/fork.svg?theme=dark)](https://gitee.com/mete-ns/shellink/members)
+
+**Windows 10 / 11（x64）** · **MIT License** · **v1.0.0**
+
 一个面向 Windows 的 **SSH / 本地终端连接工具**：**纯黑白极简界面 + Xshell 式布局**，开箱即用，支持多标签、会话管理器、SFTP 文件面板、明暗双主题与 `shlnk` 命令行。
 
 > 技术路线参照 GitHub 上 star 最高的开源终端客户端 **electerm**（15.5k★，MIT）与 **Tabby**（75k★，MIT）：
@@ -7,6 +12,19 @@
 > 的版本（主进程约 900 行、渲染层约 1800 行，无 React/打包器），并补齐了原项目中分散在多个模块的能力。
 
 ![主界面](docs/screenshot-light.png)
+
+## 下载
+
+| 版本 | 下载 | 说明 |
+| --- | --- | --- |
+| **安装版** | [分卷 1](https://gitee.com/mete-ns/shellink/releases/download/v1.0.0/Shellink-Setup-1.0.0.exe.7z.001) · [分卷 2](https://gitee.com/mete-ns/shellink/releases/download/v1.0.0/Shellink-Setup-1.0.0.exe.7z.002) | 可选安装目录、免管理员权限、创建快捷方式、自动注册 `shlnk` 命令 |
+| **绿色版** | [分卷 1](https://gitee.com/mete-ns/shellink/releases/download/v1.0.0/Shellink-Portable-1.0.0.exe.7z.001) · [分卷 2](https://gitee.com/mete-ns/shellink/releases/download/v1.0.0/Shellink-Portable-1.0.0.exe.7z.002) | 双击即用，不写注册表、不建快捷方式 |
+
+> Gitee 单个附件上限 100 MB，安装包因此按 7z 分卷发布：**两个分卷下载到同一目录**，右键 `.001` 用 7-Zip / WinRAR 解压，得到 `Shellink-Setup-1.0.0.exe`（约 117 MB）。
+>
+> 未做代码签名，首次运行时 Windows SmartScreen 可能提示「未知发布者」，点「更多信息 → 仍要运行」即可。
+
+完整更新记录见 [Releases](https://gitee.com/mete-ns/shellink/releases)。
 
 ## 关于「基于开源代码」
 

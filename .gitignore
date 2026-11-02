@@ -18,3 +18,4 @@ dark-seam.png
 npm-debug.log*
 build/shlnk.cmd
 build/icon-preview.png
+.tmp/
