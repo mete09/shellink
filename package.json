@@ -32,6 +32,12 @@
     "appId": "com.mete.shellink",
     "productName": "Shellink",
     "copyright": "Copyright © 2026 Mete",
+    "compression": "maximum",
+    "electronLanguages": [
+      "zh-CN",
+      "en-US"
+    ],
+    "afterPack": "build/after-pack.js",
     "directories": {
       "output": "release",
       "buildResources": "build"
@@ -80,6 +86,7 @@
       ],
       "createDesktopShortcut": true,
       "shortcutName": "Shellink",
+      "differentialPackage": false,
       "installerIcon": "build/icon.ico",
       "uninstallerIcon": "build/icon.ico",
       "installerHeaderIcon": "build/icon.ico",

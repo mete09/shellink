@@ -1,12 +1,14 @@
 node_modules/
 src/renderer/vendor/
 release/
+release-*/
 release-out/
 release-new/
 release-build/
 .workbuddy/
 .shot-data/
 test/.shot-data/
+test/.shot-*/
 test/.seed-*.json
 screenshot.png
 screenshot-detail.png

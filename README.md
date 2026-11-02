@@ -23,12 +23,12 @@
 
 **最新版本 v1.0.0** → [GitHub Releases](https://github.com/mete09/shellink/releases/tag/v1.0.0) · [Gitee 发行版](https://gitee.com/mete-ns/shellink/releases/tag/v1.0.0)
 
-| 版本 | GitHub 下载 | Gitee 下载（国内） | 说明 |
-| --- | --- | --- | --- |
-| **安装版** | [`Shellink-Setup-1.0.0.exe`](https://github.com/mete09/shellink/releases/download/v1.0.0/Shellink-Setup-1.0.0.exe) | [分卷 1](https://gitee.com/mete-ns/shellink/releases/download/v1.0.0/Shellink-Setup-1.0.0.exe.7z.001) · [分卷 2](https://gitee.com/mete-ns/shellink/releases/download/v1.0.0/Shellink-Setup-1.0.0.exe.7z.002) | 可选安装目录、免管理员权限、创建快捷方式、自动注册 `shlnk` 命令 |
-| **绿色版** | [`Shellink-Portable-1.0.0.exe`](https://github.com/mete09/shellink/releases/download/v1.0.0/Shellink-Portable-1.0.0.exe) | [分卷 1](https://gitee.com/mete-ns/shellink/releases/download/v1.0.0/Shellink-Portable-1.0.0.exe.7z.001) · [分卷 2](https://gitee.com/mete-ns/shellink/releases/download/v1.0.0/Shellink-Portable-1.0.0.exe.7z.002) | 双击即用，不写注册表、不建快捷方式 |
+| 版本 | 体积 | GitHub 下载 | Gitee 下载（国内） | 说明 |
+| --- | --- | --- | --- | --- |
+| **安装版** | 92 MB | [`Shellink-Setup-1.0.0.exe`](https://github.com/mete09/shellink/releases/download/v1.0.0/Shellink-Setup-1.0.0.exe) | [`Shellink-Setup-1.0.0.exe`](https://gitee.com/mete-ns/shellink/releases/download/v1.0.0/Shellink-Setup-1.0.0.exe) | 可选安装目录、免管理员权限、创建快捷方式、自动注册 `shlnk` 命令 |
+| **绿色版** | 92 MB | [`Shellink-Portable-1.0.0.exe`](https://github.com/mete09/shellink/releases/download/v1.0.0/Shellink-Portable-1.0.0.exe) | [`Shellink-Portable-1.0.0.exe`](https://gitee.com/mete-ns/shellink/releases/download/v1.0.0/Shellink-Portable-1.0.0.exe) | 双击即用，不写注册表、不建快捷方式 |
 
-> Gitee 单个附件上限 100 MB，所以码云侧是 7z 分卷：**两个分卷下载到同一目录**，右键 `.001` 用 7-Zip / WinRAR 解压，得到 `Shellink-Setup-1.0.0.exe`（约 117 MB）。GitHub 侧是单个完整 exe，直接双击即可。
+> 两个平台都是**单个完整 exe，直接下载双击即可**，无需解压、无需分卷。
 >
 > 未做代码签名，首次运行时 Windows SmartScreen 可能提示「未知发布者」，点「更多信息 → 仍要运行」即可。
 
@@ -159,7 +159,7 @@ src/
     └── js/{app,term,sftp,editor,ui,icons}.js
 test/                        本地 SSH/SFTP 测试服务器与回归脚本
 scripts/                     图标生成（logo.jpg → ico/png）、xterm 资源拷贝、shlnk 命令生成
-build/                       installer.nsh（NSIS 自定义）、cli-path.ps1（PATH 注册）、图标
+build/                       installer.nsh（NSIS 自定义）、cli-path.ps1（PATH 注册）、after-pack.js（裁剪）、图标
 ```
 
 ## 实现要点
