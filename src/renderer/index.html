@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:;" />
+  <title>Shellink</title>
+  <link rel="stylesheet" href="vendor/xterm.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- 工具栏 -->
+    <header id="toolbar">
+      <div class="tb-group">
+        <button class="tb-btn" id="tb-new" title="新建连接 (Ctrl+N)"></button>
+        <button class="tb-btn" id="tb-local" title="打开本地终端 (Ctrl+T)"></button>
+        <button class="tb-btn" id="tb-import" title="导入连接"></button>
+      </div>
+      <span class="tb-sep"></span>
+      <div class="tb-group">
+        <button class="tb-btn" id="tb-sessions" title="会话管理器 (Ctrl+Shift+S)"></button>
+        <button class="tb-btn" id="tb-sftp" title="文件传输 (Ctrl+Shift+E)"></button>
+      </div>
+      <span class="tb-sep"></span>
+      <div class="tb-group">
+        <button class="tb-btn" id="tb-copy" title="复制 (Ctrl+Shift+C)"></button>
+        <button class="tb-btn" id="tb-paste" title="粘贴 (Ctrl+Shift+V)"></button>
+        <button class="tb-btn" id="tb-search" title="查找 (Ctrl+F)"></button>
+        <button class="tb-btn" id="tb-clear" title="清屏 (Ctrl+K)"></button>
+      </div>
+      <span class="tb-sep"></span>
+      <button class="tb-btn" id="tb-settings" title="设置 (Ctrl+,)"></button>
+      <span class="spacer"></span>
+      <div class="quick-connect">
+        <span class="qc-icon" id="qc-icon"></span>
+        <input id="qc-input" placeholder="快速连接：user@host:port" spellcheck="false" />
+        <button class="btn btn-primary btn-sm" id="qc-go">连接</button>
+      </div>
+    </header>
+
+    <div id="shell">
+      <!-- 会话管理器 -->
+      <aside id="sidebar">
+        <div class="pane-head">
+          <span class="pane-title">会话管理器</span>
+          <span class="spacer"></span>
+          <button class="icon-btn" id="btn-side-new" title="新建连接"></button>
+          <button class="icon-btn" id="btn-side-import" title="导入连接"></button>
+        </div>
+
+        <div class="search-box">
+          <span id="search-icon"></span>
+          <input id="search-input" placeholder="搜索会话" spellcheck="false" />
+        </div>
+
+        <div class="side-scroll" id="tree"></div>
+
+        <div class="side-foot">
+          <button class="btn btn-ghost btn-sm btn-block" id="btn-local-quick"></button>
+        </div>
+      </aside>
+
+      <div id="splitter" title="拖动调整宽度"></div>
+
+      <!-- 主区域 -->
+      <main id="main">
+        <div id="tabbar">
+          <div id="tabs-scroll"></div>
+          <div class="tabbar-actions">
+            <button class="icon-btn" id="btn-new-tab" title="新建连接 (Ctrl+N)"></button>
+          </div>
+        </div>
+
+        <div id="workspace">
+          <div id="terms">
+            <div id="welcome">
+              <img class="welcome-logo" id="welcome-logo" src="assets/logo.png" alt="" />
+              <div class="welcome-title">Shellink</div>
+              <div class="welcome-sub">SSH 与本地终端 · 简洁，克制，即开即用</div>
+              <div class="welcome-actions">
+                <button class="btn btn-primary" id="welcome-new-ssh"></button>
+                <button class="btn btn-ghost" id="welcome-new-local"></button>
+              </div>
+              <div class="welcome-recent">
+                <div class="section-title">最近使用</div>
+                <div id="recent-list"></div>
+              </div>
+            </div>
+
+            <div class="term-search" id="term-search">
+              <input id="term-search-input" placeholder="在终端中查找…" spellcheck="false" />
+              <button class="icon-btn" id="search-prev" title="上一个">↑</button>
+              <button class="icon-btn" id="search-next" title="下一个">↓</button>
+              <button class="icon-btn" id="search-close" title="关闭">✕</button>
+            </div>
+          </div>
+
+          <section id="sftp"></section>
+        </div>
+
+        <div id="statusbar">
+          <span class="sb-item" id="sb-status"><i class="sb-dot"></i><span>未连接</span></span>
+          <span class="sb-item" id="sb-host"></span>
+          <span class="spacer"></span>
+          <span class="sb-item" id="sb-size"></span>
+          <span class="sb-item sb-click" id="sb-font" title="调整字号"></span>
+          <span class="sb-item sb-click" id="sb-theme" title="切换主题 (Ctrl+Shift+L)"></span>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div id="toasts"></div>
+  <div id="dialogs"></div>
+
+  <script src="vendor/xterm.js"></script>
+  <script src="vendor/addon-fit.js"></script>
+  <script src="vendor/addon-web-links.js"></script>
+  <script src="vendor/addon-search.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/term.js"></script>
+  <script src="js/sftp.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

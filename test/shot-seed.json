@@ -1,0 +1,70 @@
+{
+  "profiles": [
+    {
+      "type": "ssh",
+      "name": "本地测试机",
+      "group": "开发环境",
+      "host": "127.0.0.1",
+      "port": 2222,
+      "username": "demo",
+      "authType": "password",
+      "password": "demo123",
+      "keepalive": 30,
+      "timeout": 20,
+      "autoReconnect": true,
+      "initCommand": "cd \\ && dir /b"
+    },
+    {
+      "type": "ssh",
+      "name": "生产环境 Web-01",
+      "group": "生产环境",
+      "host": "10.0.12.31",
+      "port": 22,
+      "username": "root",
+      "authType": "key",
+      "privateKeyPath": "~/.ssh/id_ed25519",
+      "keepalive": 30,
+      "timeout": 20,
+      "autoReconnect": true
+    },
+    {
+      "type": "ssh",
+      "name": "数据库主库",
+      "group": "生产环境",
+      "host": "10.0.12.45",
+      "port": 2202,
+      "username": "dba",
+      "authType": "password",
+      "keepalive": 15,
+      "timeout": 20
+    },
+    {
+      "type": "ssh",
+      "name": "跳板机 jump-01",
+      "group": "运维工具",
+      "host": "47.100.32.18",
+      "port": 22,
+      "username": "ops",
+      "authType": "password",
+      "keepalive": 30,
+      "timeout": 20
+    },
+    {
+      "type": "local",
+      "name": "工作区终端",
+      "group": "运维工具",
+      "cwd": "D:/work",
+      "local": {
+        "id": "powershell",
+        "name": "Windows PowerShell",
+        "shell": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "args": ["-NoLogo"]
+      }
+    }
+  ],
+  "settings": {
+    "sftpVisible": true,
+    "theme": "light",
+    "fontSize": 13
+  }
+}

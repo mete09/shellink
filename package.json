@@ -1,0 +1,100 @@
+{
+  "name": "shellink",
+  "productName": "Shellink",
+  "version": "1.0.0",
+  "description": "Shellink — Windows 上的 SSH / 本地终端连接工具",
+  "main": "src/main/main.js",
+  "author": "Mete",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "vendor": "node scripts/copy-vendor.js",
+    "icon": "node scripts/make-icon.js",
+    "start": "node scripts/copy-vendor.js && electron .",
+    "dev": "node scripts/copy-vendor.js && electron . --dev",
+    "shot": "node scripts/copy-vendor.js && electron . --screenshot",
+    "build": "node scripts/copy-vendor.js && electron-builder --win --x64",
+    "pack": "node scripts/copy-vendor.js && electron-builder --win --x64 --dir"
+  },
+  "dependencies": {
+    "@lydell/node-pty": "^1.2.0-beta.18",
+    "ssh2": "^1.17.0"
+  },
+  "devDependencies": {
+    "@xterm/addon-fit": "^0.10.0",
+    "@xterm/addon-search": "^0.15.0",
+    "@xterm/addon-web-links": "^0.11.0",
+    "@xterm/xterm": "^5.5.0",
+    "electron": "^45.2.1",
+    "electron-builder": "^26.18.0"
+  },
+  "build": {
+    "appId": "com.mete.shellink",
+    "productName": "Shellink",
+    "copyright": "Copyright © 2026 Mete",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "package.json",
+      "!**/*.map",
+      "!**/node_modules/cpu-features/**",
+      "!**/node_modules/@types/**"
+    ],
+    "extraFiles": [
+      {
+        "from": "build/shlnk.cmd",
+        "to": "shlnk.cmd"
+      }
+    ],
+    "asarUnpack": [
+      "**/node_modules/@lydell/**"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "artifactName": "Shellink-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "language": "2052",
+      "installerLanguages": [
+        "zh_CN"
+      ],
+      "createDesktopShortcut": true,
+      "shortcutName": "Shellink",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "installerHeaderIcon": "build/icon.ico",
+      "include": "build/installer.nsh",
+      "artifactName": "Shellink-Setup-${version}.exe"
+    },
+    "portable": {
+      "artifactName": "Shellink-Portable-${version}.exe"
+    },
+    "npmRebuild": false,
+    "extraResources": [
+      {
+        "from": "build/cli-path.ps1",
+        "to": "cli-path.ps1"
+      }
+    ]
+  }
+}
